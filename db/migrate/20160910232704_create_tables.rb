@@ -9,12 +9,13 @@ class CreateTables < ActiveRecord::Migration
   	create_table :users_groups do |t|
   		t.integer :user_id
   		t.integer :group_chat_id
-  		
+
   		t.timestamps
   	end
 
   	create_table :pitches do |t|
   		t.string :title, presence: true
+      t.integer :group_chat_id
   		t.datetime :start_time, presence: true
   		t.datetime :deadline, presence: true
 
