@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Remember to create a migration!
   has_many :users_groups
-  has_many :group_chats, through: :users_groups
+  has_many :groupchats, through: :users_groups
   has_many :votes
 
   include BCrypt
