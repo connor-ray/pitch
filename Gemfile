@@ -12,9 +12,11 @@ gem 'activerecord', '~>4.2.0'
 
 gem 'rake'
 
-gem 'bcrypt'
+gem 'bcrypt' 
 
-gem 'shotgun'
+gem 'twilio-ruby'
+
+gem 'shotgun' 
 
 group :test do
   gem 'shoulda-matchers'
