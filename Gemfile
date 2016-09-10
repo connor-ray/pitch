@@ -18,6 +18,8 @@ gem 'twilio-ruby'
 
 gem 'shotgun' 
 
+gem 'dotenv'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
