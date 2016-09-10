@@ -1,1 +1,5 @@
-index.erb
+<h2>Here are all of the locations for this pitch:</h2>
+
+<% @proposals.each do |proposal| %>
+	<div><%= proposal.location_title %></div>
+<% end %> 

@@ -1,1 +1,15 @@
-new.erb
+<h2>Create a new location:</h2>
+
+<div class="container">
+  <form action='/users/new' method='post'>
+    Title: <input type="text" name="location_title" placeholder="Title">
+    <div class="password">
+    Comment: <input type="text" name="comment" placeholder="Comment">
+    </div>
+  </form>
+
+  <% if @error %>
+    <%= @error %>
+  <% end %>
+
+</div>
