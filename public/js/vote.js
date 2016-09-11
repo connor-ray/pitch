@@ -1,7 +1,35 @@
 $(document).ready(function() {
   // clickVoteButton();
   VoteWidget.init();
+  showForm();
+  addProposal();
 })
+
+
+var showForm = function() {
+  $('.add-proposal').on('click', '#add-prop-btn', function(event) {
+          event.preventDefault();
+          $(this).hide();
+          $('.proposal-form').show();
+      });
+}
+
+var addProposal = function() {
+  $('.proposal-form').on('submit', function(event) {
+    event.preventDefault();
+    var url = $(this).find('form').attr('action');
+    $.ajax({
+      url: url,
+      method: 'POST'
+    }).done(function(result){
+      console.log(result);
+    })
+  })
+}
+
+
+
+
 
 var clickVoteButton = function(){
   $('.vote').on('click', '.vote-btn', function(event) {

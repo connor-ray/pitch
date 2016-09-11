@@ -1,5 +1,6 @@
 get '/' do
-  erb :'groupchats/show'
+	# redirect '/sessions/new'
+  	erb :'groupchats/show'
 end
 
 get '/homepage' do

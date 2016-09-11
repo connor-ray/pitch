@@ -7,7 +7,11 @@ end
 post '/proposals' do
   @proposal = Proposal.new(params[:proposal])
   if @proposal.save
-    redirect "/pitches/#{@proposal.pitch_id}"
+    if request.xhr?
+      erb :'proposals/_proposal', layout: false, locals: { proposal: @proposal }
+    else
+      redirect "/pitches/#{@proposal.pitch_id}"
+    end
   else
     erb :'proposals/new'
   end
@@ -37,4 +41,15 @@ delete '/proposals/:id' do
   @proposal = Proposal.find(params[:id])
   @proposal.destroy
   redirect '/proposals'
+end
+
+get '/groupchats/:id' do
+  if current_user
+    @groupchat = Groupchat.find(params[:id])
+    @pitch = Pitch.find(13)
+    @proposals = Proposal.where(pitch_id: @pitch.id)
+    erb :'/proposals/content'
+  else
+    redirect '/sessions/new'
+  end
 end
