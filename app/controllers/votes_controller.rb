@@ -2,16 +2,12 @@
 # Voting on a proposal 
 post '/proposals/:id/votes' do
   # @user = User.find(session[:user_id]) 
-  p "$$$$$$$$$$$$" * 20
-  p params[:id]
   @proposal = Proposal.find(params[:id])
   @vote = current_user.votes.new(proposal_id: @proposal.id)
 
   if @vote.save
     if request.xhr?
       @votes_count = Vote.where(proposal_id: @proposal.id).length
-      p "&&&&&&&&&" *20
-      p @votes_count
       content_type :json
       {post_id: params[:id], likes: @votes_count}.to_json
     else
