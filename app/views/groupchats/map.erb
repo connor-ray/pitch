@@ -1,0 +1,23 @@
+<div class="content-container">
+  <div ontouchstart="this.classList.toggle('hover');">
+  	<div class="flipper">
+  		<div class="front">
+        <div class="inner" style="overflow:scroll">
+          <h1>Front</h1>
+          <!-- <button id="button" type="button" name="button">Hello</button> -->
+          <%= erb :'partials/_category_dropdown', layout: false %>
+          <div>
+            <ul style="list-style: none" id='locationList'>
+            </ul>
+          </div>
+        </div>
+  		</div>
+  		<div class="back">
+        <div class="inner">
+          <h1>Back</h1>
+          <div class="list-container">
+          </div
+        </div>
+  	   </div>
+  	</div>
+  </div>
