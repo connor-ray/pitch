@@ -1,0 +1,27 @@
+<div class="container">
+  <form action='/users/new' method='post'>
+    <div>
+    Name: <input type="text" name="user[user_name]" placeholder="Name">
+    </div>
+    <div>
+    Email: <input type="email" name="user[email]" placeholder="Email">
+    </div>
+
+    <div>
+    Phone: <input type="text" name="user[phone]" placeholder="Phone">
+    </div>
+
+    Zip: <input type="integer" name="user[zip]" placeholder="Zip">
+    </div>
+
+    <div class="password">
+    Password: <input type="password" name="user[password]" placeholder="Password">
+    </div>
+    <input class="password" type="submit" value="submit">
+  </form>
+
+  <% if @error %>
+    <%= @error %>
+  <% end %>
+
+</div>

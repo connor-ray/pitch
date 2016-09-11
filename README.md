@@ -1,2 +1,1 @@
-# pitch
-tech-crunch
+# Website Skeleton with User Login and Bootstrap

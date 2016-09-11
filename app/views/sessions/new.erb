@@ -1,0 +1,18 @@
+<div class="container">
+
+  <form action='/sessions/new' method='post'>
+  	<div>
+    Email: <input type="email" name="email" placeholder="email">
+    </div>
+    <div>
+    Password: <input type="password" name="password" placeholder="password">
+    </div>
+    <div>
+    <input class="password" type="submit" value="submit">
+    </div>
+  </form>
+
+  <% if @error %>
+    <%= @error %>
+  <% end %>
+</div>

@@ -1,0 +1,43 @@
+
+  <div id="chat_container">
+    <section id="chat_section">
+      <div id="messages">
+          <textarea id="chat-input" type="text" rows='3' placeholder="Type Message Here" autofocus style="border: none"></textarea>
+      </div>
+    </section>
+    <% if session[:user_id] %>
+      <div id="log_out_button">
+        <form action="/sessions" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Log Out">
+        </form>
+      </div>
+    <% end %>
+    <script src="//media.twiliocdn.com/sdk/rtc/js/ip-messaging/v0.9/twilio-ip-messaging.min.js"></script>
+    <script src="//media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/chat.js"></script>
+  </div>
+
+
+    <!-- logout button -->
+  <div id="ahh">
+    <form action="/temp_users/delete" method="POST" id="safe_exit">
+      <input name="_method" type="hidden" value="DELETE" />
+      <input type="submit" id="safe_button" value="Safe Exit">
+    </form>
+  </div>
+
+  <% if session[:user_id] %>
+    <form action="/allies/:id" method="POST" id="toggle"/>
+      <input type="hidden" name="_method" value="PUT">
+
+      <% if @user[:available?] == false %>
+        <input type="hidden" name="available?" value="true">
+        <input type="submit" name="" value="I'm avaiable to help">
+      <%else%>
+        <input type="hidden" name="available?" value="false">
+        <input type="submit" name="" value="end chat">
+      <%end%>
+    </form>
+  <% end %>

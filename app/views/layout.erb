@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <!--
+    application.css is where you put your styles
+  -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/group-display.css">
+  <link rel="stylesheet" href="/css/flip.css">
+  <link rel="stylesheet" href="/css/chat.css">
+  <link rel="stylesheet" href="/css/application.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+  <script src="/js/api-test.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitch</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    #map {width: 100%; height: 400px; background: #eee;}
+    .chat-box
+          {
+              padding-top: 50px;
+              width: 500px;
+              border-radius: 25px;
+              padding-left: 50px;
+              border-radius: 25px;
+          }
+
+          .header
+          {
+              text-align: center;
+              padding: 10px;
+              color: white;
+              font-size: 14px;
+              font-weight: bold;
+              background-color: #74A28B;
+              border-radius: 25px;
+          }
+
+          .messages
+          {
+              padding: 10px;
+              height: 300px;
+              background-color: green;
+              background-color: rgb(237, 239, 244);
+              border-width: 1px;
+              border-color: black;
+              border-style: solid;
+              overflow-y: scroll;
+              border-radius: 25px;
+          }
+
+          .messages ul
+          {
+              padding: 0px;
+              list-style-type: none;
+          }
+
+          /*.messages ul li
+          {
+              height: auto;
+              margin-bottom: 10px;
+              clear: both;
+              padding-left: 10px;
+              padding-right: 10px;
+          }*/
+
+          .message span
+          {
+              display: inline-block;
+              max-width: 200px;
+              background-color: white;
+              padding: 5px;
+              border-radius: 4px;
+              position: relative;
+              border-width: 1px;
+              border-style: solid;
+              border-color: grey;
+          }
+
+         /* .messages ul li span.left
+          {
+              float: left;
+          }
+
+          .messages ul li span.left:after
+          {
+              content: "";
+              display: inline-block;
+              position: absolute;
+              left: -8.5px;
+              top: 7px;
+              height: 0px;
+              width: 0px;
+              border-top: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-right: 8px solid white;
+          }
+
+          .messages ul li span.left:before
+          {
+              content: "";
+              display: inline-block;
+              position: absolute;
+              left: -9px;
+              top: 7px;
+              height: 0px;
+              width: 0px;
+              border-top: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-right: 8px solid black;
+          }
+
+          .messages ul li span.right:after
+          {
+              content: "";
+              display: inline-block;
+              position: absolute;
+              right: -8px;
+              top: 6px;
+              height: 0px;
+              width: 0px;
+              border-top: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-left: 8px solid #dbedfe;
+          }
+
+          .messages ul li span.right:before
+          {
+              content: "";
+              display: inline-block;
+              position: absolute;
+              right: -9px;
+              top: 6px;
+              height: 0px;
+              width: 0px;
+              border-top: 8px solid transparent;
+              border-bottom: 8px solid transparent;
+              border-left: 8px solid black;
+          }
+
+          .messages ul li span.right
+          {
+              float: right;
+              background-color: #dbedfe;
+          }*/
+
+          .clear
+          {
+              clear: both;
+          }
+
+          #chat-input
+          {
+              background-color: white;
+              height: 50px;
+              padding: 0px;
+              border-radius: 25px;
+              text-align: center;
+              font-size: 30px;
+          }
+
+          #input-box textarea
+          {
+              padding: 0px;
+              width: 478px;
+              height: 100%;
+              display: inline-block;
+              outline: 0px;
+              border-width: 0px;
+              resize: none;
+              border-width: 1px;
+              border-color: black;
+              border-style: solid;
+              font-size: 30px;
+              padding: 10px;
+              border-top-width: 0px;
+              border-radius: 25px;
+          }
+
+          span .username {
+            font-weight: bold;
+
+          }
+
+
+  </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+  </script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="//media.twiliocdn.com/sdk/rtc/js/ip-messaging/v0.8/twilio-ip-messaging.min.js"></script>
+  </script>
+  <!-- The js file will be placed here after the page renders -->
+  <!-- // <script src="{% static 'js/chat.js' %}"></script> -->
+  <!-- Example -->
+  <script src="js/chat.js"></script>
+  <script src="js/api_test.js"></script>
+  <!-- The script for the here api will be placed here -->
+  <!-- // <script src="//maps.googleapis.com/maps/api/js"></script> -->
+
+  <title>Website</title>
+</head>
+<body >
+
+<header class="header-container">
+    <div class="nav-bar">
+      <% if session[:user_id] %>
+
+        <div class="main-header click-link">
+          <a href="/"><h1>PITCH</h1></a>
+        </div>
+
+        <div class="nav-container">
+          <div class="user-header nav click-link">
+            <a href="/users/<%= session[:user_id] %>"><%=  "#{current_user.user_name}".capitalize%></a>
+          </div>
+          <div class="logout nav click-link">
+            <a href="/sessions/delete">LOGOUT</a>
+          </div>
+        </div>
+
+      <% else %>
+        <div class="login click-link">
+          <a href="/sessions/new">Login</a>
+        </div>
+
+        <div class="register click-link">
+          <a href="/users/new">Register</a>
+        </div>
+      <% end %>
+    </div>
+</header>
+  <%= yield %>
+</body>
+</html>

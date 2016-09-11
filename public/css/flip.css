@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+  float: left;
+  padding-top: 90px;
+}
+	/* flip the pane when hovered */
+.flip-me .flipper{
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 705px;
+	height: 700px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+
+/* entire container, keeps perspective */
+.flip-container1 {
+	perspective: 1000px;
+  float: left;
+  padding-top: 90px;
+  /*display: inline-block;*/
+}
+	/* flip the pane when hovered */
+.flip-me1 .flipper1 {
+		transform: rotateY(180deg);
+	}
+
+.flip-container1, .front1, .back1 {
+	width: 705px;
+	height: 700px;
+}
+
+/* flip speed goes here */
+.flipper1 {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front1, .back1 {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front1 {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back1 {
+	transform: rotateY(180deg);
+}
+
+.inner {
+  text-align: center;
+  width: 90%;
+  height: 90%;
+  border: solid #74A28B 2px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.pitch-btn {
+  float: right;
+  margin: 0 auto;
+  top: 20px;
+  position: relative;
+}
+
+.detail-container {
+  width: 80%;
+  margin: 0 auto;
+	border-bottom: 1px #74A28B solid;
+	padding: 12px;
+	float: left;
+}
+
+.list-item-container {
+  width: 90%;
+  border: 2px solid #74A28B;
+  margin: 10px auto;
+  padding: 10px;
+  display: inline-block;
+}
+
+.results {
+	color: #74A28B;
+}
+
+#locationList {
+	color: #74A28B;
+}
+
+.content-container {
+  width: 100%;
+  margin: 0 auto;
+	font-family: 'Dosis';
+}
+
+.submit-btn {
+  background: #74A28B;
+  font-size: 15px;
+  border: 1px solid #74A28B;
+  color: white;
+  padding: 5px;
+}
+
+.full-container {
+  width: 90%;
+  /*padding-top: 60px;*/
+  margin: 0 auto;
+}
+
+.flip-button {
+	position: relative;
+	border: none;
+	background: none;
+  float: right;
+	padding-top: 20px;
+  padding-right: 20px;
+  color: #74A28B;
+}

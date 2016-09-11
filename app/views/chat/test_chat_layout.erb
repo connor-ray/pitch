@@ -1,0 +1,41 @@
+<!-- The following is a sample web page for for creating a chat page with a map on the page  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pitch</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      #map {width: 100%; height: 400px; background: #eee;}
+    </style>
+    <!-- The script for the here api will be placed here -->
+    <!-- // <script src="//maps.googleapis.com/maps/api/js"></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pitch</h1>
+      <div id="map"></div>
+      <p>
+         Latitude: <input type="text" id="lat" readonly=true />,
+         Longitude: <input type="text" id="long" readonly=true />
+      </p>
+      <section>
+        <div id="messages"></div>
+        <input id="chat-input" type="text" placeholder="say anything" autofocus class="form-control" />
+      </section>
+    </div>
+ 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="//media.twiliocdn.com/sdk/rtc/js/ip-messaging/v0.8/twilio-ip-messaging.min.js"></script>
+    </script>
+    <!-- The js file will be placed here after the page renders -->
+    <!-- // <script src="{% static 'js/chat.js' %}"></script> -->
+    <!-- Example -->
+    <script src="js/chat_test.js"></script>
+
+  </body>
+</html>

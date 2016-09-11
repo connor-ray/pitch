@@ -1,0 +1,15 @@
+<h2>Here are all of the locations for <%= @pitch.title %> at <%= @pitch.start_time %></h2>
+<p>Deadline to vote or submit a proposal is <%= @pitch.deadline %></p>
+<!-- Should we use the word "proposal" for the user to see? -->
+<!-- It's really just a counter-pitch for a different location -->
+<p>Below are the proposals for this pitch:</p>
+<% @proposals.each do |proposal| %>
+  <div>
+    <a href="/proposals/<%= proposal.id %>"><%= proposal.location_title %></a>
+  </div>
+  <!-- append image of location + other data -->
+<% end %>
+<form method='get' action="/proposals/new">
+<input type="hidden" name="pitch_id" value="<%= @pitch.id %>">
+<button>Add a new proposal</button>
+</form>

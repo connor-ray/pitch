@@ -1,0 +1,10 @@
+<form id = "<%=@proposal.id%>", class="vote", method = "post" action="/proposals/<%=@proposal.id%>/votes">
+  <p class="vote-count"><%=@proposal.count_votes%></p>
+  <button
+          class="vote-btn" 
+          data-default-text="Vote!"
+          data-alt-text="Thanks for voting!">
+    <span class="icon"></span> <span class="text">Vote</span>
+  </button>
+</form>
+<script src="js/vote.js"></script>
