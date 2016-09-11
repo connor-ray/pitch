@@ -20,11 +20,13 @@
 
             .header
             {
+                text-align: center;
                 padding: 10px;
                 color: white;
                 font-size: 14px;
                 font-weight: bold;
-                background-color: #6d84b4;
+                background-color: #74A28B;
+                border-radius: 25px;
             }
 
             .messages
@@ -37,7 +39,7 @@
                 border-color: black;
                 border-style: solid;
                 overflow-y: scroll;
-                
+                border-radius: 25px;
             }
 
             .messages ul
@@ -46,16 +48,16 @@
                 list-style-type: none;
             }
 
-            .messages ul li
+            /*.messages ul li
             {
                 height: auto;
                 margin-bottom: 10px;
                 clear: both;
                 padding-left: 10px;
                 padding-right: 10px;
-            }
+            }*/
 
-            .messages ul li span
+            .message span
             {
                 display: inline-block;
                 max-width: 200px;
@@ -68,7 +70,7 @@
                 border-color: grey;
             }
 
-            .messages ul li span.left
+           /* .messages ul li span.left
             {
                 float: left;
             }
@@ -133,22 +135,24 @@
             {
                 float: right;
                 background-color: #dbedfe;
-            }
+            }*/
 
             .clear
             {
                 clear: both;
             }
 
-            .input-box
+            #chat-input
             {
                 background-color: white;
                 height: 100px;
                 padding: 0px;
                 border-radius: 25px;
+                text-align: center;
+                font-size: 30px;
             }
 
-            .input-box textarea
+            #input-box textarea
             {
                 padding: 0px;
                 width: 478px;
@@ -165,6 +169,13 @@
                 border-top-width: 0px;
                 border-radius: 25px;
             }
+
+            span .username {
+              font-weight: bold;
+
+            }
+
+
     </style>
     <!-- The script for the here api will be placed here -->
     <!-- // <script src="//maps.googleapis.com/maps/api/js"></script> -->
@@ -192,7 +203,7 @@
         <!-- <div id="messages"></div> -->
         <!-- <input id="chat-input" type="text" placeholder="Enter Message" autofocus class="form-control" /> -->
         <div class="chat-box">
-              <div class="header">Pitch User </div>
+              <div class="header">Chat </div>
                   <div id="messages" class="messages"></div>
                       <!-- <ul>
                           <li>
@@ -201,8 +212,9 @@
                           </li> 
                              
                       </ul> -->
-                      <div class="clear"></div>
-                      <input id="chat-input" type="text" placeholder="Enter Message" autofocus class="form-control" />
+                  <div class="clear"></div>
+                  <input id="chat-input" type="text" placeholder="Enter Message" autofocus class="form-control" />
+                  <!-- <textarea id="chat-input" type="text" rows='3' placeholder="Type Message Here" autofocus style="border: none"></textarea> -->
           </div>
                       
               <!-- <div class="input-box">
