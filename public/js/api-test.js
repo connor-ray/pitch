@@ -31,8 +31,8 @@ var getNearbyLocations = function () {
        for (var i = 0; i < objects.length; i++){
          objectData = [objects[i].title, objects[i].vicinity, objects[i].distance, objects[i].category.title, i]
          parsedData.push(objectData);
-         $("#locationList").append('<li><span>' + objectData[0] + '</span></li><span>' + objectData[1] + '</span><br><span>' + objectData[2] + '</span><br><span>' + objectData[3] + '</span>');
-         $("#locationList").append("<form class='' action='' method='post'><input type='hidden' name='item[title]' value='" + objectData[0] + "'><input type='hidden' name='item[address]' value='" + objectData[1] + "'><input type='hidden' name='item[distance]' value='" + objectData[2] + "'><input type='hidden' name='item[category]' value='" + objectData[3] + "'></form><input type='submit'>");
+         $("#locationList").append("<div class='detail-container'><span class='place-title'>" + objectData[0] + "</span><span class='place-detail'>" + objectData[1] + "</span><br><span class='place-detail'>" + objectData[2] + "</span><br><span class='place-detail'>" + objectData[3] + "</span></div>");
+         $("#locationList").append("<div class='pitch-btn'><form class='' action='' method='post'><input type='hidden' name='item[title]' value='" + objectData[0] + "'><input type='hidden' name='item[address]' value='" + objectData[1] + "'><input type='hidden' name='item[distance]' value='" + objectData[2] + "'><input type='hidden' name='item[category]' value='" + objectData[3] + "'><input type='submit' class='submit-btn' value='PITCH-IT'></form></div>");
        }
        // parse through information and acquire desired attributes
        // title, location, vicinity, etc
