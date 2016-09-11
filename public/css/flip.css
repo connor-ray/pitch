@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
-  float: left;
+  float: right;
   padding-top: 90px;
 }
 	/* flip the pane when hovered */
-	.flip-container:hover .flipper{
+.flip-me .flipper{
 		transform: rotateY(180deg);
 	}
 
@@ -50,7 +52,7 @@
   /*display: inline-block;*/
 }
 	/* flip the pane when hovered */
-	.flip-container1:hover .flipper1 {
+.flip-me1 .flipper1 {
 		transform: rotateY(180deg);
 	}
 
@@ -95,4 +97,50 @@
   border: solid #74A28B 2px;
   margin: 0 auto;
   margin-top: 40px;
+}
+
+.pitch-btn {
+  float: right;
+  margin: 0 auto;
+  top: 20px;
+  position: relative;
+}
+
+.detail-container {
+  text-align: left;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.list-item-container {
+  width: 90%;
+  border: 2px solid #74A28B;
+  margin: 10px auto;
+  padding: 10px;
+  display: inline-block;
+}
+
+.content-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.submit-btn {
+  background: none;
+  font-size: 15px;
+  border: 2px solid #74A28B;
+  color: #74A28B;
+  padding: 5px;
+}
+
+.full-container {
+  width: 90%;
+  padding-top: 60px;
+  margin: 0 auto;
+}
+
+.flip-button {
+  float: right;
+  padding-right: 20px;
+  color: #74A28B;
 }

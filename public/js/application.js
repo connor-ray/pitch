@@ -1,7 +1,16 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+ flipButton();
 });
+
+function flipButton() {
+  console.log("yayyyyy");
+$(".flipper1").on("click", ".flip-button", function() {
+  $(".flip-container1").toggleClass("flip-me1");
+});
+}
+function flipButton() {
+$(".flipper").click(".flip-button", function() {
+  console.log("yayyyy");
+  $(".flip-container").toggleClass("flip-me");
+});
+}
