@@ -5,20 +5,21 @@ $(document).ready(function() {
 var generateMap = function (coordinates) {
   // console.log(coordinates)
   $.ajax({
-    url: 'https://image.maps.cit.api.here.com/mia/1.6/mapview',
+    url: 'https://image.maps.api.here.com/mia/1.6/mapview',
     type: 'GET',
     data: {
        c: '37.7719,-122.4218', // this is the current location (tech crunch location)
        app_id: 'fRTOmoR7FfcvAIuCqt1V',
        app_code: 'X1FkzDPPRfhlg2cjfTbT2w',
-       poi: coordinates,
-       contentType: 'image/jpeg;charset=UTF-8'
+       poi: coordinates
+       // contentType: 'image/jpeg;charset=UTF-8'
      },
      success: function (data) {
-      json = JSON.stringify(data)
-      alert(json)
+      console.log(data);
+      json = JSON.stringify(data);
+      // alert(json);
       console.log(typeof(json));
-      console.log(json)
+      console.log(json);
       // console.log(data)
       // alert(JSON.stringify(data))
       $('#locationList').append(json);
