@@ -25,7 +25,7 @@ var generateMap = function(coordinates) {
       json = JSON.stringify(data)
       console.log(data)
       // $('div #map').append(data);
-      $('.list-container').append('<img id="responseImage" class="image-viewer" alt="Response Image" src=' + json + '>')
+      $('.map-container').append('<img id="responseImage" class="image-viewer" alt="Response Image" src=' + json + '>')
     }
 
   });
