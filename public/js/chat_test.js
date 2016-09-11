@@ -5,7 +5,7 @@ var cityChannel;
 var username;
 var userLocation;
 var city;
-
+// View the chat_test.erb to see where everything is called and rendered 
 // Helper function to print info messages to the chat window
 function print(infoMessage, asHtml) {
     var $msg = $('<div class="info">');
@@ -29,7 +29,7 @@ function printMessage(fromUser, message) {
     $chatWindow.append($container);
 }
 
-
+// Finds a position on the map 
 function positionFound(position) {
   document.getElementById('lat').value = position.coords.latitude;
   document.getElementById('long').value = position.coords.longitude;
@@ -37,7 +37,7 @@ function positionFound(position) {
 }
 
 // creates the map based on user's browser location 
-// We may or may not use this 
+// We may or may not use this because here offers a functionality already 
 function drawMap() {
   var mapCanvas = document.getElementById('map');
   var latLng = new google.maps.LatLng(document.getElementById('lat').value, document.getElementById('long').value);
@@ -55,7 +55,8 @@ function drawMap() {
   });
 }
 
-// Hard code the map 
+// This is the final rendering which calls the drawmap and chat 
+// based on city function 
 function mapAndChat() {
   drawMap();
   chatBasedOnCity();
@@ -64,8 +65,8 @@ function mapAndChat() {
 
 // latitude 
 // longitude 
-// vicinity 
-
+// vicinity are the 3 variables 
+// Grabs the current location lat and long vars and creates chat 
 function chatBasedOnCity() {
   var latitude = $('#lat').val();
   var longitude = $('#long').val();
@@ -109,7 +110,7 @@ function createChat() {
     });
   });
 
-// Setting up channel on Twilio 
+// Setting up channel on Twilio chat 
   function setupChannel() {
       // Join the general channel
       cityChannel.join().then(function(channel) {
@@ -122,7 +123,8 @@ function createChat() {
       });
   }
 
-  // Send a new message to the general channel
+  // Send a new message to the general channel which 
+  // is the chat output 
   var $input = $('#chat-input');
   $input.on('keydown', function(e) {
       if (e.keyCode == 13) {
@@ -131,7 +133,7 @@ function createChat() {
       }
   });
 }
-
+// This navigates to the current location 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(positionFound);
 } else {
