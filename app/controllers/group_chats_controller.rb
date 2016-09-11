@@ -1,6 +1,6 @@
-get '/groupchats/new'  do 
+get '/groupchats/new'  do
   if current_user
-    @users = User.all 
+    @users = User.all
 	  erb :'/groupchats/new'
   else
     redirect '/sessions/new'
@@ -8,7 +8,7 @@ get '/groupchats/new'  do
 end
 
 post '/groupchats/new' do
-  @user = User.find(session[:user_id]) 
+  @user = User.find(session[:user_id])
   @groupchat = Groupchat.new(params[:groupchat])
   @member = User.where(params[:user])
   if @groupchat.save
@@ -23,10 +23,10 @@ end
 get '/groupchats/:id' do
   if current_user
     @groupchat = Groupchat.find(params[:id])
-    @pitch = Pitch.find(13)
+    @pitch = Pitch.find(1)
     @proposals = Proposal.where(pitch_id: @pitch.id)
-    # erb :'/proposals/content' #Assuntas Working page
-    erb :'/groupchats/show'
+    erb :'/proposals/content' #Assuntas Working page
+    # erb :'/groupchats/show'
   else
     redirect '/sessions/new'
   end
@@ -44,8 +44,8 @@ end
 
 # Not in use currently
 delete '/groupchats/:id' do
-  @groupchat = Groupchat.find(params[:id]) 
-  @groupchat.destroy 
+  @groupchat = Groupchat.find(params[:id])
+  @groupchat.destroy
   redirect '/'
 
 end
@@ -54,14 +54,14 @@ end
 
 put '/groupchats/:id' do
 
-  @groupchat = Groupchat.find(params[:id]) 
+  @groupchat = Groupchat.find(params[:id])
   @groupchat.assignattributes(params[:groupchat])
 
   if @groupchat.save
-    redirect '/groupchats' 
+    redirect '/groupchats'
   else
   	@error = "Sorry, there was a problem - please try again."
-    erb :'groupchats/edit' 
+    erb :'groupchats/edit'
   end
 
 end

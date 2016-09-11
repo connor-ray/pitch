@@ -46,10 +46,10 @@ This is the div that goes onto the left front side - it is hard-coded for simpli
 				<input type="hidden" name="vote[proposal_id]" value="<%=proposal.id%>">
   				<p class="vote-count"><%=proposal.count_votes%></p>
  				<button
-         				class="vote-btn" 
+         				class="vote-btn"
          				data-default-text="Vote!"
          				data-alt-text="Thanks for voting!">
-    				<span class="icon"></span> 
+    				<span class="icon"></span>
     				<span class="text">Vote</span>
   				</button>
 			</form>
@@ -69,16 +69,16 @@ This is the div that goes onto the left front side - it is hard-coded for simpli
 	    	Location Title: <input type="text" name="	proposal[location_title]" placeholder="	Location Title">
 	    </div>
 	    <div>
-	    	<input type="hidden" name="proposal[pitch_id		" value="13">
+	    	<input type="hidden" name="proposal[pitch_id]" value="13">
 	    	<input type="submit" value="submit">
 	    </div>
 	  </form>
 	</div>
-	
+
 	  <% if @error %>
 	    <%= @error %>
 	  <% end %>
-	
+
 	</div>
 
 </div>

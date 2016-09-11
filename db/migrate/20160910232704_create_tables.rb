@@ -26,6 +26,9 @@ class CreateTables < ActiveRecord::Migration
   		t.string :location_title, presence: true
       t.integer :pitch_id
   		t.string :comment
+      t.string :address
+      t.integer :distance
+      t.string :category
 
   		t.timestamps
   	end
