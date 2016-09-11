@@ -1,7 +1,3 @@
-get '/pitches/new'  do
-	erb :'/pitches/new'
-end
-
 # no route for displaying all pitches -
 # it's a feature
 # of the chat function
@@ -9,15 +5,17 @@ end
 get '/pitches/:id' do
   @pitch = Pitch.find(params[:id])
   @proposals = Proposal.where(pitch_id: @pitch.id)
-    erb :'/pitches/show'
+    erb :'pitches/show'
+    # shows all proposals of a given pitch
 end
 
 get '/pitches/new' do
+  @groupchat_id = Groupchat.find_by_id(params[:groupchat_id])
   erb :'pitches/new'
 end
 
 post '/pitches/new' do
-  @pitch = Pitch.new(params)
+  @pitch = Pitch.new(params[:pitch])
   if @pitch.save
     # redirect to chat screen
   else

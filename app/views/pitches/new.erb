@@ -1,18 +1,19 @@
 <div class="container">
-  <form action='/pitches/new' method='post'>
+  <form action='/pitches' method='post'>
     <div>
-    Pitch Title: <input type="text" name="title" placeholder="Pitch Title">
+    Pitch Title: <input type="text" name="pitch[title]" placeholder="Pitch Title">
     </div>
 
     <div>
-    Event Start-Time: <input type="datetime-local" name="start_time">
+    Event Start-Time: <input type="datetime-local" name="pitch[start_time]">
     </div>
 
     <div>
-    Deadline for Voting: <input type="datetime-local" name="deadline">
+    Deadline for Voting: <input type="datetime-local" name="pitch[deadline]">
     </div>
-    
+
     <div>
+    <input type="hidden" name="pitch[groupchat_id]" value="<%= @groupchat_id %>">
     <input type="submit" value="submit">
     </div>
   </form>
