@@ -1,0 +1,116 @@
+This is the div that goes onto the left front side - it is hard-coded for simplicity now -->
+
+<!-- <div id="meetups">
+	<div>
+		<p> Meetups up for Vote</p>
+		<div>
+			<h2>Group Celebatory Dinner</h2>
+				<div>
+					<p>Date and Time: </p>
+					<p>Deadline: </p>
+				</div>
+		</div>
+	</div>
+	<div>
+		<p> Finalized Meetups </p>
+		<div>
+			<h2>Pre-TechCrunch Dinner</h2>
+				<div>
+					<p>Date and Time: </p>
+					<p>Location: </p>
+				</div>
+		</div>
+		<div>
+			<h2>Thursday Lunch</h2>
+				<div>
+					<p>Date and Time: </p>
+					<p>Location: </p>
+				</div>
+		</div>
+	</div>
+</div> -->
+
+
+<!-- These go on the flip-side on the left -->
+
+<div id="Pitches">
+	<h2> <%= @pitch.title %></h2>
+	<p> Date and Time: <%= @pitch.start_time %> </p>
+	<p> Voting ends at: <%= @pitch.deadline %></p>
+
+	<h3>Pitches:</h3>
+	<% @proposals.each do |proposal| %>
+  		<div>
+  			<p><%= proposal.location_title %></p>
+			<form id ="<%=proposal.id%>", class="vote", method = "post" action="proposals/<%=proposal.id%>/votes">
+				<input type="hidden" name="vote[proposal_id]" value="<%=proposal.id%>">
+  				<p class="vote-count"><%=proposal.count_votes%></p>
+ 				<button
+         				class="vote-btn" 
+         				data-default-text="Vote!"
+         				data-alt-text="Thanks for voting!">
+    				<span class="icon"></span> 
+    				<span class="text">Vote</span>
+  				</button>
+			</form>
+			<script src="../js/vote.js"></script>
+  		</div>
+	<% end %>
+
+	<form class="add-proposal" method='get' action="/proposals/new">
+		<input type="hidden" name="pitch_id" value="<%= @pitch.id %>">
+		<button id="add-prop-btn">Add a new proposal</button>
+	</form>
+
+	<div class="hidden proposal-form">
+		<h2>Add your PITCH:</h2>
+	  	<form action='/proposals' method='post'>
+	    <div>
+	    	Location Title: <input type="text" name="	proposal[location_title]" placeholder="	Location Title">
+	    </div>
+	    <div>
+	    	<input type="hidden" name="proposal[pitch_id		" value="13">
+	    	<input type="submit" value="submit">
+	    </div>
+	  </form>
+	</div>
+	
+	  <% if @error %>
+	    <%= @error %>
+	  <% end %>
+	
+	</div>
+
+</div>
+
+
+
+
+
+<!-- <div class="content-container">
+  <div class="flip-container1" ontouchstart="this.classList.toggle('hover');">
+    <div id="flipper_box1">
+        <div class="flipper">
+          <div class="front1">
+            <h1>FRONT 1</h1>
+          </div>
+          <div class="back1">
+            <h1>BACK1</h1>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="flip-container2" ontouchstart="this.classList.toggle('hover');">
+    <div id="flipper_box2">
+        <div class="flipper2">
+          <div class="front2">
+            <h1>FRONT2</h1>
+          </div>
+          <div class="back2">
+            <h1>BACK2</h1>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

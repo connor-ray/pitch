@@ -2,6 +2,10 @@
 	padding: 80px;
 }
 
+.hidden {
+  display: none;
+}
+
 @-webkit-keyframes bump1 {
   0% {
     -webkit-transform: scale(1);

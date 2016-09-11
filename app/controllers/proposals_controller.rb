@@ -7,7 +7,11 @@ end
 post '/proposals' do
   @proposal = Proposal.new(params[:proposal])
   if @proposal.save
-    redirect "/pitches/#{@proposal.pitch_id}"
+    if request.xhr?
+      erb :'proposals/_proposal', layout: false, locals: { proposal: @proposal }
+    else
+      redirect "/pitches/#{@proposal.pitch_id}"
+    end
   else
     erb :'proposals/new'
   end
