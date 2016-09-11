@@ -1,5 +1,5 @@
 get '/' do
-  redirect '/homepage'
+  erb :'index'
 end
 
 get '/homepage' do
