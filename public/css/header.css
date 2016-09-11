@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css?family=Rokkitt");
+
+.header-container {
+  background: #74A28B;
+  font-family: 'Rokkitt';
+  font-weight: lighter;
+  width: 100%;
+  position: fixed;
+  display: block;
+  -webkit-box-shadow: 1px 2px 50px 0px rgba(164,164,164,1);
+  -moz-box-shadow: 1px 2px 50px 0px rgba(164,164,164,1);
+  box-shadow: 1px 2px 50px 0px rgba(164,164,164,1);
+}
+
+.main-header {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  padding-left: 10px;
+  color: white;
+}
+
+.logout {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  color: white;
+
+}
+
+.user-header {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  color: white;
+
+}
+
+.nav-container {
+  float: right;
+  margin-top: 2%;
+}
+
+.nav {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.click-link a:link {
+    text-decoration: none;
+    color: white;
+}
+
+.click-link a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.click-link a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.click-link a:active {
+    text-decoration: none;
+    color: white;
+}
