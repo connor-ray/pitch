@@ -19,7 +19,8 @@ var generateMap = function (coordinates) {
     }, 
     success: function(data) {
       // need to append the map to html page
-      alert(JSON.stringify(data));
+      $('locationList').append(data)
+      // alert(JSON.stringify(data));
     }
    }
 }
