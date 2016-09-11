@@ -1,22 +1,21 @@
 # These are the controllers for the votes 
 # Voting on a proposal 
 post '/proposals/:id/votes' do
- @proposal = Proposal.find(params[:id])
- upvote = (params[:upVote] == "true")
- # p [upvote, params[:upVote]]
- @vote = Vote.new(user_id: current_user.id, upvoted?: upvote)
- # @vote.user_id = current_user.id
+  # @user = User.find(session[:user_id]) 
+  @proposal = Proposal.find(params[:vote][:proposal_id])
+  @vote = current_user.votes.new(proposal_id: @proposal.id)
+
+  current_user.voted?
+
   if @vote.save
-    @proposal.votes << @vote
     if request.xhr?
-      p @proposal.rating.to_s
+      #      p @proposal.rating.to_s
     else
-     redirect "/proposals/#{@proposal.id}"
+      redirect "/pitches/#{@proposal.pitch_id}"
     end
   else
-    @errors = @vote.errors.full_messages
-    # erb :"proposal/#{@question.id}"
-    erb :"chat/chat_layout"
+     @errors = "Something went wrong - please try again"
+     erb :'pitches/show'
   end
 end
 

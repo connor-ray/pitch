@@ -3,21 +3,18 @@
 # of the chat function
 
 get '/groupchats/:groupchat_id/pitches/new' do
-  @groupchat_id = Groupchat.find_by_id(params[:groupchat_id])
+  @groupchat = Groupchat.find_by_id(params[:groupchat_id])
   erb :'pitches/new'
 end
 
 post '/pitches' do
-  p params
   @pitch = Pitch.new(params[:pitch])
   @groupchat = Groupchat.find(params[:pitch][:groupchat_id])
-  p "#" * 30
-  p @groupchat.id
   if @pitch.save
-    redirect "/groupchats/#{@groupchat.id}"
+    redirect "/pitches/#{@pitch.id}"
+    # redirect "/groupchats/#{@groupchat.id}"
   else
     @error = "Sorry, you entered in some wrong information - please try again."
-
     erb :'/pitches/new'
   end
 end

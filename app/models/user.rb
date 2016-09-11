@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def voted?
+    p "*************************************"
+  end
+
 end
 
 
