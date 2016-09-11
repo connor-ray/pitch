@@ -1,46 +1,26 @@
-<!-- <div class="content-container">
-  <div class="flip-container1" ontouchstart="this.classList.toggle('hover');">
-    <div id="flipper_box1">
-        <div class="flipper">
-          <div class="front1">
-            <h1>FRONT 1</h1>
-          </div>
-          <div class="back1">
-            <h1>BACK1</h1>
-          </div>
-        </div>
-    </div>
-  </div>
-
-  <div class="flip-container2" ontouchstart="this.classList.toggle('hover');">
-    <div id="flipper_box2">
-        <div class="flipper2">
-          <div class="front2">
-            <h1>FRONT2</h1>
-          </div>
-          <div class="back2">
-            <h1>BACK2</h1>
-          </div>
-        </div>
-    </div>
-  </div>
-</div> -->
 <div class="content-container">
   <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
   	<div class="flipper">
-  		<div class="front">
+  		<div class="back">
         <div class="inner">
+          <button class="flip-button"><i class="material-icons">chat_bubble</i></button>
           <h1>Front</h1>
         </div>
   		</div>
-  		<div class="back">
-        <div class="inner">
-          <h1>Back</h1>
+  		<div class="front">
+        <div class="inner" style="overflow:scroll">
+          <button class="flip-button"><i class="material-icons">chat_bubble</i></button>
+          <div class="full-container">
+            <%= erb :'partials/_category_dropdown', layout: false %>
+            <div>
+              <ul style="list-style: none" id='locationList'>
+              </ul>
+            </div>
+          </div>
         </div>
-  	   </div>
-  	</div>
+  	  </div>
+    </div>
   </div>
-
   <div class="flip-container1" ontouchstart="this.classList.toggle('hover');">
   	<div class="flipper1">
   		<div class="front1">
@@ -52,7 +32,7 @@
         <div class="inner">
           <h1>Back</h1>
         </div>
-  	   </div>
+  	  </div>
   	</div>
   </div>
-</div
+</div>
