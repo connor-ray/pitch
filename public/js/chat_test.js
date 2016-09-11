@@ -30,54 +30,54 @@ function printMessage(fromUser, message) {
 }
 
 // Finds a position on the map 
-function positionFound(position) {
-  document.getElementById('lat').value = position.coords.latitude;
-  document.getElementById('long').value = position.coords.longitude;
-  mapAndChat();
-}
+// function positionFound(position) {
+//   document.getElementById('lat').value = position.coords.latitude;
+//   document.getElementById('long').value = position.coords.longitude;
+//   mapAndChat();
+// }
 
-// creates the map based on user's browser location 
+// // creates the map based on user's browser location 
 // We may or may not use this because here offers a functionality already 
-function drawMap() {
-  var mapCanvas = document.getElementById('map');
-  var latLng = new google.maps.LatLng(document.getElementById('lat').value, document.getElementById('long').value);
+// function drawMap() {
+//   var mapCanvas = document.getElementById('map');
+//   var latLng = new google.maps.LatLng(document.getElementById('lat').value, document.getElementById('long').value);
 
-  var mapOptions = {
-    center: latLng,
-    zoom: 12,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  var map = new google.maps.Map(mapCanvas, mapOptions);
-  var marker = new google.maps.Marker({
-    position: latLng,
-    map: map,
-    title: 'Your location'
-  });
-}
+//   var mapOptions = {
+//     center: latLng,
+//     zoom: 12,
+//     mapTypeId: google.maps.MapTypeId.ROADMAP
+//   }
+//   var map = new google.maps.Map(mapCanvas, mapOptions);
+//   var marker = new google.maps.Marker({
+//     position: latLng,
+//     map: map,
+//     title: 'Your location'
+//   });
+// }
 
 // This is the final rendering which calls the drawmap and chat 
 // based on city function 
-function mapAndChat() {
-  drawMap();
-  chatBasedOnCity();
-}
+// function mapAndChat() {
+//   drawMap();
+//   chatBasedOnCity();
+// }
 
 
 // latitude 
 // longitude 
 // vicinity are the 3 variables 
 // Grabs the current location lat and long vars and creates chat 
-function chatBasedOnCity() {
-  var latitude = $('#lat').val();
-  var longitude = $('#long').val();
-  $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&sensor=true', {}, function(locationData) {
-    userLocation = locationData.results[0]["formatted_address"];
-    username = userLocation.replace(/\s/g, '_');
-    // city = locationData.results[0].address_components[3].long_name;
-    // vicinity 
-    createChat();
-  });
-}
+// function chatBasedOnCity() {
+//   var latitude = $('#lat').val();
+//   var longitude = $('#long').val();
+//   $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&sensor=true', {}, function(locationData) {
+//     userLocation = locationData.results[0]["formatted_address"];
+//     username = userLocation.replace(/\s/g, '_');
+//     // city = locationData.results[0].address_components[3].long_name;
+//     // vicinity 
+//     createChat();
+//   });
+// }
 
 // Create chat for users
 function createChat() {
@@ -134,8 +134,8 @@ function createChat() {
   });
 }
 // This navigates to the current location 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(positionFound);
-} else {
-  alert('It appears that required geolocation is not enabled in your browser.');
-}
+// if (navigator.geolocation) {
+//   navigator.geolocation.getCurrentPosition(positionFound);
+// } else {
+//   alert('It appears that required geolocation is not enabled in your browser.');
+// }

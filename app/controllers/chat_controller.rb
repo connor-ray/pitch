@@ -10,7 +10,7 @@ Dotenv.load
 
 # Render chat room 
 get '/chat' do
-  erb:'chat_layout'
+  erb:'chat/test_chat_layout'
 end
 
 # Generate a token for use in our IP Messaging application
