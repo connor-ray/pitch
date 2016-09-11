@@ -1,39 +1,38 @@
 get '/proposals' do
-  @proposals = Proposal.all 
-  erb :'proposals/index' 
+  @proposals = Proposal.all
+  erb :'proposals/index'
 end
-
 
 get '/proposals/new' do
   erb :'proposals/new'
 end
 
 post '/proposals' do
-  @proposal = Proposal.new(params[:proposal]) 
-  if @proposal.save 
-    redirect '/proposals' 
+  @proposal = Proposal.new(params[:proposal])
+  if @proposal.save
+    redirect '/proposals'
   else
-    erb :'proposals/new' 
+    erb :'proposals/new'
   end
 end
 
 get '/proposals/:id/edit' do
-  @proposal = Proposal.find(params[:id]) 
+  @proposal = Proposal.find(params[:id])
   erb :'proposals/edit'
 end
 
 put '/proposals/:id' do
-  @proposal = Proposal.find(params[:id]) 
-  @proposal.assign_attributes(params[:proposal]) 
-  if @proposal.save 
-    redirect '/proposals' 
+  @proposal = Proposal.find(params[:id])
+  @proposal.assign_attributes(params[:proposal])
+  if @proposal.save
+    redirect '/proposals'
   else
-    erb :'proposals/edit' 
+    erb :'proposals/edit'
   end
 end
 
 delete '/proposals/:id' do
-  @proposal = Proposal.find(params[:id]) 
-  @proposal.destroy 
-  redirect '/proposals' 
+  @proposal = Proposal.find(params[:id])
+  @proposal.destroy
+  redirect '/proposals'
 end
