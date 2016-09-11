@@ -1,10 +1,12 @@
 get '/groupchats/new'  do 
+  @users = User.all 
 	erb :'/groupchats/new'
 end
 
 post '/groupchats/new' do
   @user = User.find(session[:user_id]) 
-  @groupchat = Groupchat.new(params)
+  @groupchat = Groupchat.new(params[:groupchat])
+  @member = User.where(params[:user])
   if @groupchat.save
     @user.groupchats << @groupchat
     redirect "/users/#{@user.id}"
@@ -22,7 +24,6 @@ end
 
 delete '/groupchats/:id' do
   @groupchat = Groupchat.find(params[:id]) 
-
   @groupchat.destroy 
   redirect '/'
 
