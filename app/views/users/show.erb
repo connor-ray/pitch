@@ -1,6 +1,16 @@
 
 <div class="container user_show_body"><br>
 
-    <h1 class="page-header" > <%= current_user.name %>'s Profile</h1><br>
+    <h1 class="page-header" > <%= current_user.user_name %>'s Profile</h1><br>
+
+    <a href='/groupchats/new'>Add new group</a>
+
+    <div class="container"> 
+		<% @groupchats.each do |groupchat| %>
+		<div>
+			<%= groupchat.chat_name %>
+		</div>
+		<%  end  %>
+	</div>
 
 </div>
