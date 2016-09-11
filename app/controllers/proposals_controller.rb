@@ -5,7 +5,7 @@ end
 
 get '/proposals/new' do
   erb :'proposals/new'
-end
+end 
 
 post '/proposals' do
   @proposal = Proposal.new(params[:proposal])
@@ -14,7 +14,7 @@ post '/proposals' do
   else
     erb :'proposals/new'
   end
-end
+end 
 
 get '/proposals/:id/edit' do
   @proposal = Proposal.find(params[:id])
