@@ -4,9 +4,9 @@ $(document).ready(function() {
 
 
 var generateMap = function (coordinates) {
-  $("#button").on('click', function (event) {
-   console.log("triggered");
-   event.preventDefault();
+  // $("#button").on('click', function (event) {
+   // console.log("triggered");
+   // event.preventDefault();
 
    $.ajax({
     url: 'https://image.maps.cit.api.here.com/mia/1.6/mapview'
