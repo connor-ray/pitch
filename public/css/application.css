@@ -4,6 +4,7 @@ body {
   font-family: 'Oswald';
   text-transform: uppercase;
   letter-spacing: 2px;
+  background: #EEEEEB;
 }
 
 a:link {
