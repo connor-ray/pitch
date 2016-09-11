@@ -1,3 +1,5 @@
+
+
 <form id = "<%=@proposal.id%>", class="vote", method = "post" action="/proposals/<%=@proposal.id%>/votes">
     <div><button class = "votebutton", type = "submit", name = "vote", value = "true" <%= @proposal.already_voted?(current_user) ? "disabled" : "" %>><i class="fa fa-thumbs-up" aria-hidden="true"></i></button></div>
 
