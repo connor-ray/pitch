@@ -1,43 +1,45 @@
-get '/group_chats/new'  do 
-	erb :'/group_chats/new'
+get '/groupchats/new'  do 
+	erb :'/groupchats/new'
 end
 
-post '/group_chats/new' do
-  @group_chat = Group_Chat.new(params)
-  if @group_chat.save
-    redirect "/group_chat/#{@group_chat.id}"
+post '/groupchats/new' do
+  @user = User.find(session[:user_id]) 
+  @groupchat = Groupchat.new(params)
+  if @groupchat.save
+    @user.groupchats << @groupchat
+    redirect "/users/#{@user.id}"
   else
     @error = "Sorry, you entered in some wrong information - please try again."
-    erb :'/group_chats/new'
+    erb :'/groupchats/new'
   end
 end
 
-get '/group_chats/:id' do
-	@group_chat = Group_Chat.find(params[:id])
-    erb :'/group_chats/show'
+get '/groupchats/:id' do
+	@groupchat = Groupchat.find(params[:id])
+    erb :'/groupchats/show'
 end
 
 
-delete '/group_chats/:id' do
-  @group_chat = Group_Chat.find(params[:id]) 
+delete '/groupchats/:id' do
+  @groupchat = Groupchat.find(params[:id]) 
 
-  @group_chat.destroy 
+  @groupchat.destroy 
   redirect '/'
 
 end
 
 
 
-put '/group_chats/:id' do
+put '/groupchats/:id' do
 
-  @group_chat = Group_Chat.find(params[:id]) 
-  @group_chat.assign_attributes(params[:group_chat])
+  @groupchat = Groupchat.find(params[:id]) 
+  @groupchat.assignattributes(params[:groupchat])
 
-  if @group_chat.save
-    redirect '/group_chats' 
+  if @groupchat.save
+    redirect '/groupchats' 
   else
   	@error = "Sorry, there was a problem - please try again."
-    erb :'group_chats/edit' 
+    erb :'groupchats/edit' 
   end
 
 end

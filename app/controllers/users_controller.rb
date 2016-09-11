@@ -3,7 +3,7 @@ get '/users/new' do
 end
 
 post '/users/new' do
-  @user = User.new(params)
+  @user = User.new(params[:user])
   if @user.save
     login(@user)
 
@@ -18,6 +18,8 @@ end
 get '/users/:id' do
   if session[:user_id]
     @user = User.find(session[:user_id])
+    @groupchats = Groupchat.joins(:users).where("users.id = ?", @user.id)
+    p @groupchats
   end
 
   erb :'/users/show'
