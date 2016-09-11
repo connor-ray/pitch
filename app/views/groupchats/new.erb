@@ -1,7 +1,13 @@
 <div class="container">
 	<form action='/groupchats/new' method='POST'>
 		<div>
-			Group Name: <input type="text" name="chat_name" placeholder="Add Group Name">
+			Group Name: <input type="text" name="groupchat[chat_name]" placeholder="Add Group Name">
+		</div>
+		<div>
+			Add people to your group
+
+			<input type="text" name="user[user_name]" placeholder="User_name">
+
 		</div>
 
 		<div>
