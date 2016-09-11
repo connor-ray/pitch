@@ -2,6 +2,23 @@
 # it's a feature
 # of the chat function
 
+get '/groupchats/:groupchat_id/pitches/new' do
+  @groupchat = Groupchat.find_by_id(params[:groupchat_id])
+  erb :'pitches/new'
+end
+
+post '/pitches' do
+  @pitch = Pitch.new(params[:pitch])
+  @groupchat = Groupchat.find(params[:pitch][:groupchat_id])
+  if @pitch.save
+    redirect "/pitches/#{@pitch.id}"
+    # redirect "/groupchats/#{@groupchat.id}"
+  else
+    @error = "Sorry, you entered in some wrong information - please try again."
+    erb :'/pitches/new'
+  end
+end
+
 get '/pitches/:id' do
   @pitch = Pitch.find(params[:id])
   @proposals = Proposal.where(pitch_id: @pitch.id)
@@ -9,21 +26,6 @@ get '/pitches/:id' do
     # shows all proposals of a given pitch
 end
 
-get '/pitches/new' do
-  @groupchat_id = Groupchat.find_by_id(params[:groupchat_id])
-  erb :'pitches/new'
-end
-
-post '/pitches/new' do
-  @pitch = Pitch.new(params[:pitch])
-  if @pitch.save
-    # redirect to chat screen
-  else
-    @error = "Sorry, you entered in some wrong information - please try again."
-
-    erb :'/pitches/new'
-  end
-end
 
 delete '/pitches/:id' do
   @pitch = Pitch.find(params[:id])

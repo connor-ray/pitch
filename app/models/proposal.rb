@@ -1,4 +1,4 @@
-require 'votable_module'
+require_relative 'votable_module'
 
 class Proposal < ActiveRecord::Base
   # Remember to create a migration!

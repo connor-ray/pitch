@@ -2,24 +2,20 @@ get '/proposals/new' do
   @pitch = Pitch.find(params[:pitch_id])
   @groupchat_id = @pitch.groupchat_id
   erb :'proposals/new'
-end 
+end
 
 post '/proposals' do
   @proposal = Proposal.new(params[:proposal])
-  # p "#" * 20
-  # p params[:proposal]
   if @proposal.save
-    # p @proposal
     redirect "/pitches/#{@proposal.pitch_id}"
   else
     erb :'proposals/new'
   end
-end 
+end
 
 get '/proposals/:id' do
-  p params
   @proposal = Proposal.find_by_id(params[:id])
-    erb :'/pitches/show'
+    erb :'proposals/show'
 end
 
 get '/proposals/:id/edit' do

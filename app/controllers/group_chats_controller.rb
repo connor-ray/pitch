@@ -20,14 +20,14 @@ post '/groupchats/new' do
   end
 end
 
-get '/groupchats/:id' do
-  if current_user
-    @groupchat = Groupchat.find(params[:id])
-    erb :'/groupchats/show'
-  else
-    redirect '/sessions/new'
-  end
-end
+# get '/groupchats/:id' do
+#   if current_user
+#     @groupchat = Groupchat.find(params[:id])
+#     erb :'/groupchats/show'
+#   else
+#     redirect '/sessions/new'
+#   end
+# end
 
 
 # Not in use currently

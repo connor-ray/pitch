@@ -1,6 +1,24 @@
+$(document).ready(function() {
+  // clickVoteButton();
+  VoteWidget.init();
+})
+
+var clickVoteButton = function(){
+  $('.vote').on('click', '.vote-btn', function(event) {
+    event.preventDefault();
+    var url = $(this).parent().attr('action')
+    $.ajax({
+      method: 'POST',
+      url: url
+    }).done(function(result) {
+      $('#' + result.post_id).find('.vote-count').text(result.likes)
+    })
+  });
+}
+
 
 // Vote ajax widget 
-var VoteWidget= {
+var VoteWidget = {
   settings: {
     $counter: $('.vote-count'),
     $btn:     $('.myform button'),
@@ -40,5 +58,5 @@ init: function() {
 }
 
 
-VoteWidget.init();
+
 
