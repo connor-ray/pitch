@@ -31,12 +31,12 @@ $(function() {
     // Helper function to print chat message to the chat window
     function printMessage(fromUser, message) {
         // var $list = $('')
-        var $user = $('<strong><font size="6"><span class="username">').text(fromUser + ':    ');
+        var $user = $('<strong><font size="6"><span class="username" border="black">').text(fromUser + ':    ');
         if (fromUser === username) {
             $user.addClass('me');
         }
         var $message = $('<span class="imessage">').text(message);
-        var $container = $('<div class="message-container">');
+        var $container = $('<div class="message-container"><p><p>');
         var $space = $('<div class="somespace"></div>');
         $container.append($user).append($message);
         $container.append($space);
