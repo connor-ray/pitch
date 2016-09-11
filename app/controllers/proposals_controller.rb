@@ -42,14 +42,3 @@ delete '/proposals/:id' do
   @proposal.destroy
   redirect '/proposals'
 end
-
-get '/groupchats/:id' do
-  if current_user
-    @groupchat = Groupchat.find(params[:id])
-    @pitch = Pitch.find(13)
-    @proposals = Proposal.where(pitch_id: @pitch.id)
-    erb :'/proposals/content'
-  else
-    redirect '/sessions/new'
-  end
-end

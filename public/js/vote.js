@@ -23,6 +23,7 @@ var addProposal = function() {
       method: 'POST'
     }).done(function(result){
       console.log(result);
+      // append results to list if wanted
     })
   })
 }
