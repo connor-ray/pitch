@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+
 
 /* entire container, keeps perspective */
 .flip-container {
@@ -107,9 +109,11 @@
 }
 
 .detail-container {
-  text-align: left;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
+	border-bottom: 1px #74A28B solid;
+	padding: 12px;
+	float: left;
 }
 
 .list-item-container {
@@ -120,22 +124,31 @@
   display: inline-block;
 }
 
+.results {
+	color: #74A28B;
+}
+
+#locationList {
+	color: #74A28B;
+}
+
 .content-container {
   width: 100%;
   margin: 0 auto;
+	font-family: 'Dosis';
 }
 
 .submit-btn {
-  background: none;
+  background: #74A28B;
   font-size: 15px;
-  border: 2px solid #74A28B;
-  color: #74A28B;
+  border: 1px solid #74A28B;
+  color: white;
   padding: 5px;
 }
 
 .full-container {
   width: 90%;
-  padding-top: 60px;
+  /*padding-top: 60px;*/
   margin: 0 auto;
 }
 

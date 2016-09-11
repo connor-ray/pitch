@@ -7,12 +7,14 @@ var generateMap = function(coordinates) {
   var currentLocation = 'c=37.7719,-122.4218&';
   var app_id = '&app_id=fRTOmoR7FfcvAIuCqt1V&';
   var app_code = 'app_code=X1FkzDPPRfhlg2cjfTbT2w';
+  var w = '&w=600&';
+  var h = 'h=530';
   // coordinates.slice
   console.log(coordinates)
   var poi = 'poi=' + coordinates;
   // console.log(poi)
 
-  var dataUrl = mapurl + currentLocation + poi + app_id + app_code;
+  var dataUrl = mapurl + currentLocation + poi + app_id + app_code + w + h;
   console.log(dataUrl);
 
 
@@ -95,7 +97,7 @@ var getNearbyLocations = function () {
        for (var i = 0; i < objects.length; i++){
          objectData = [objects[i].title, objects[i].vicinity, objects[i].distance, objects[i].category.title, i]
          parsedData.push(objectData);
-         $("#locationList").append("<div class='detail-container'><span class='place-title'>" + objectData[0] + "</span><span class='place-detail'>" + objectData[1] + "</span><br><span class='place-detail'>" + objectData[2] + "</span><br><span class='place-detail'>" + objectData[3] + "</span></div>");
+         $("#locationList").append("<div class='detail-container'><span>" + (i + 1) + '.  ' + "</span><span class='place-title'>" + objectData[0] + "</span><span class='place-detail'>" + objectData[1] + "</span><br></div>");
          $("#locationList").append("<div class='pitch-btn'><form class='' action='' method='post'><input type='hidden' name='item[title]' value='" + objectData[0] + "'><input type='hidden' name='item[address]' value='" + objectData[1] + "'><input type='hidden' name='item[distance]' value='" + objectData[2] + "'><input type='hidden' name='item[category]' value='" + objectData[3] + "'><input type='submit' class='submit-btn' value='PITCH-IT'></form></div>");
          // append each set of coordinates to a string
          coordinates += objects[i].position[0] + '%2C'
