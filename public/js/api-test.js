@@ -3,6 +3,25 @@ $(document).ready(function() {
 });
 
 
+var generateMap = function (coordinates) {
+  $("#button").on('click', function (event) {
+   console.log("triggered");
+   event.preventDefault();
+
+   $.ajax({
+    url: 'https://image.maps.cit.api.here.com/mia/1.6/mapview'
+    type: 'GET'
+    data: {
+      c: '37.7719,-122.4218' // this is the current location (tech crunch location)
+      app_id: 'fRTOmoR7FfcvAIuCqt1V',
+      app_code: 'X1FkzDPPRfhlg2cjfTbT2w',
+      poi: coordinates
+    }, 
+    success: function(data) {
+      alert(JSON.stringify(data));
+    }
+   }
+}
 
 var getNearbyLocations = function () {
  $("#button").on('click', function (event) {
@@ -26,6 +45,8 @@ var getNearbyLocations = function () {
        xhr.setRequestHeader('Accept', 'application/json');
      },
      success: function (data) {
+      // need to create another array or string with all coordinates of each object, then pass into generate map function
+       coordinates: ''
        objects = data.results.items
        parsedData = []
        for (var i = 0; i < objects.length; i++){
@@ -34,6 +55,7 @@ var getNearbyLocations = function () {
          $("#locationList").append('<li><span>' + objectData[0] + '</span></li><span>' + objectData[1] + '</span><br><span>' + objectData[2] + '</span><br><span>' + objectData[3] + '</span>');
          $("#locationList").append("<form class='' action='' method='post'><input type='hidden' name='item[title]' value='" + objectData[0] + "'><input type='hidden' name='item[address]' value='" + objectData[1] + "'><input type='hidden' name='item[distance]' value='" + objectData[2] + "'><input type='hidden' name='item[category]' value='" + objectData[3] + "'></form><input type='submit'>");
        }
+       generateMap(coordinates);
        // parse through information and acquire desired attributes
        // title, location, vicinity, etc
        // append to list
