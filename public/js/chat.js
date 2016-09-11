@@ -30,19 +30,23 @@ $(function() {
 
     // Helper function to print chat message to the chat window
     function printMessage(fromUser, message) {
-        var $user = $('<span class="username">').text(fromUser + ':');
+        // var $list = $('')
+        var $user = $('<strong><font size="6"><span class="username" border="black">').text(fromUser + ':    ');
         if (fromUser === username) {
             $user.addClass('me');
         }
-        var $message = $('<span class="message">').text(message);
-        var $container = $('<div class="message-container">');
+        var $message = $('<span class="imessage">').text(message);
+        var $container = $('<div class="message-container"><p><p>');
+        var $space = $('<div class="somespace"></div>');
         $container.append($user).append($message);
+        $container.append($space);
         $chatWindow.append($container);
+        // $chatWindow.append($space); 
         $chatWindow.scrollTop($chatWindow[0].scrollHeight);
     }
 
     // Alert the user they have been assigned a random username
-    print('Logging in to help channel...');
+    // print('Logging in to help channel...');
 
     // Get an access token for the current user, passing a username (identity)
     // and a device ID - for browser-based apps, we'll always just use the 
@@ -53,8 +57,8 @@ $(function() {
     }, function(data) {
         // Alert the user they have been assigned a random username
         username = data.identity;
-        print('Assigned random username: ' 
-            + '<span class="me">' + username + '</span>...', true);
+        // print('Assigned random username: ' 
+            // + '<span class="me">' + username + '</span>...', true);
 
         // Initialize the IP messaging client
         accessManager = new Twilio.AccessManager(data.token);
@@ -62,7 +66,7 @@ $(function() {
 
         // Get the general chat channel, which is where all the messages are
         // sent in this simple application
-        print('Waiting for connection...');
+        // print('Waiting for connection...');
         var promise = messagingClient.getChannelByUniqueName('general');
         promise.then(function(channel) {
             generalChannel = channel;
@@ -78,7 +82,7 @@ $(function() {
                     setupChannel();
                 });
             } else {
-                console.log('Found general channel:');
+                // console.log('Found general channel:');
                 console.log(generalChannel);
                 setupChannel();
             }
@@ -89,8 +93,8 @@ $(function() {
     function setupChannel() {
         // Join the general channel
         generalChannel.join().then(function(channel) {
-            print('<span class="me">' + username + '</span>' + ' ' +' has established connection!', true);
-            print('Safe exit button located above');
+            // print('<span class="me">' + username + '</span>' + ' ' +' has established connection!', true);
+            print('Connected!');
         });
 
         // Listen for new messages sent to the channel

@@ -7,13 +7,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pitch</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+    <style type="text/css">
       #map {width: 100%; height: 400px; background: #eee;}
+      .chat-box
+            {
+                padding-top: 50px;
+                width: 500px;
+                border-radius: 25px;
+                padding-left: 50px;
+                border-radius: 25px;
+            }
+
+            .header
+            {
+                text-align: center;
+                padding: 10px;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                background-color: #74A28B;
+                border-radius: 25px;
+            }
+
+            .messages
+            {
+                padding: 10px;
+                height: 800px;
+                background-color: green;
+                background-color: rgb(237, 239, 244);
+                border-width: 1px;
+                border-color: black;
+                border-style: solid;
+                overflow-y: scroll;
+                border-radius: 25px;
+            }
+
+            .messages ul
+            {
+                padding: 0px;
+                list-style-type: none;
+            }
+
+            /*.messages ul li
+            {
+                height: auto;
+                margin-bottom: 10px;
+                clear: both;
+                padding-left: 10px;
+                padding-right: 10px;
+            }*/
+
+            .message span
+            {
+                display: inline-block;
+                max-width: 200px;
+                background-color: white;
+                padding: 5px;
+                border-radius: 4px;
+                position: relative;
+                border-width: 1px;
+                border-style: solid;
+                border-color: grey;
+            }
+
+           /* .messages ul li span.left
+            {
+                float: left;
+            }
+
+            .messages ul li span.left:after
+            {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                left: -8.5px;
+                top: 7px;
+                height: 0px;
+                width: 0px;
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-right: 8px solid white;
+            }
+
+            .messages ul li span.left:before
+            {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                left: -9px;
+                top: 7px;
+                height: 0px;
+                width: 0px;
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-right: 8px solid black;
+            }
+
+            .messages ul li span.right:after
+            {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                right: -8px;
+                top: 6px;
+                height: 0px;
+                width: 0px;
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-left: 8px solid #dbedfe;
+            }
+
+            .messages ul li span.right:before
+            {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                right: -9px;
+                top: 6px;
+                height: 0px;
+                width: 0px;
+                border-top: 8px solid transparent;
+                border-bottom: 8px solid transparent;
+                border-left: 8px solid black;
+            }
+
+            .messages ul li span.right
+            {
+                float: right;
+                background-color: #dbedfe;
+            }*/
+
+            .clear
+            {
+                clear: both;
+            }
+
+            #chat-input
+            {
+                background-color: white;
+                height: 100px;
+                padding: 0px;
+                border-radius: 25px;
+                text-align: center;
+                font-size: 30px;
+            }
+
+            #input-box textarea
+            {
+                padding: 0px;
+                width: 478px;
+                height: 100%;
+                display: inline-block;
+                outline: 0px;
+                border-width: 0px;
+                resize: none;
+                border-width: 1px;
+                border-color: black;
+                border-style: solid;
+                font-size: 30px;
+                padding: 10px;
+                border-top-width: 0px;
+                border-radius: 25px;
+            }
+
+            span .username {
+              font-weight: bold;
+
+            }
+
+
     </style>
     <!-- The script for the here api will be placed here -->
     <!-- // <script src="//maps.googleapis.com/maps/api/js"></script> -->
   </head>
   <body>
+    <div>
+      <script src="//www.powr.io/powr.js" external-type="html"></script> 
+      <div class="powr-countdown-timer" id="1e563833_1473582296882">
+      </div>
+    </div>
+    <!-- <form id="testform" action="" >
+    <button id="testbutton">Click</button>
+    </form> -->
     <div class="container">
       <h1>Pitch</h1>
       <!-- this is what we target for the map -->
@@ -24,31 +199,29 @@
          Latitude: <input type="text" id="lat" readonly=true />,
          Longitude: <input type="text" id="long" readonly=true />
       </p>
-      <!-- <section class="section-container">
-        <div id="messages"></div>
-        <input id="chat-input" type="text" placeholder="Enter Message" autofocus class="form-control" />
-      </section> -->
-  <section>
-      <div class="chat-box">
-            <div class="header">
-                Narayan Prusty
-            </div>
-            <div id="messages-container" class="messages">
-                <ul>
-                    <li>
-                        <div id="messages"></div>
-                        <div class="clear"></div>
-                    </li> 
-                </ul>
-                <div class="clear"></div>
-            </div>
-            
-            <div class="input-box">
-                <textarea id="chat-input" type="text"placeholder="Enter message" autofocus class="form-control"></textarea>
-            </div>
-        </div>
-    </div>
-  </section>
+      <section class="section-container">
+        <!-- <div id="messages"></div> -->
+        <!-- <input id="chat-input" type="text" placeholder="Enter Message" autofocus class="form-control" /> -->
+        <div class="chat-box">
+              <div class="header">Chat </div>
+                  <div id="messages" class="messages"></div>
+                      <!-- <ul>
+                          <li>
+                              <span class="left">Hello</span>
+                              <div class="clear"></div>
+                          </li> 
+                             
+                      </ul> -->
+                  <div class="clear"></div>
+                  <input id="chat-input" type="text" placeholder="Enter Message" autofocus class="form-control" />
+                  <!-- <textarea id="chat-input" type="text" rows='3' placeholder="Type Message Here" autofocus style="border: none"></textarea> -->
+          </div>
+                      
+              <!-- <div class="input-box">
+                  <textarea placeholder="Enter message"></textarea>
+              </div> -->
+      </div>
+      </section>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
     </script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -57,7 +230,7 @@
     <!-- The js file will be placed here after the page renders -->
     <!-- // <script src="{% static 'js/chat.js' %}"></script> -->
     <!-- Example -->
-    <script src="js/chat_test.js"></script>
+    <script src="js/chat.js"></script>
     <script src="js/api_test.js"></script>
   </body>
 </html>
