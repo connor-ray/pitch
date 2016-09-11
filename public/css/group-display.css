@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+
+.group-container {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  margin-left: 80px;
+  padding-top: 130px;
+}
+
+.groups-header {
+  margin: 0 auto;
+  position: relative;
+  font-family: 'Dosis';
+  color: #74A28B;
+}
+
+.group {
+  display: inline-block;
+  border: 2px solid #74A28B;
+  width: 24%;
+  height: 80%;
+  margin: 40px;
+  border-radius: 2%;
+  background: white;
+}
+
+.group h4 {
+  font-family: 'Dosis';
+  padding: 12px;
+  color: #74A28B;
+}
+
+.group-name {
+  font-family: 'Dosis';
+  background: #74A28B;
+  color: white;
+  padding: 20px;
+}
+
+.row-1 {
+  margin: 15px;
+  height: 400px;
+}
+
+.row-2 {
+  margin: 15px;
+  height: 400px;
+}
+
+.row-3 {
+  margin: 15px;
+  height: 400px;
+}
+
+.right {
+  right: 1px;
+}
+
+.one {
+  background: ;
+}
+.two {
+  background: ;
+}
+.three {
+  background: ;
+}
+.four {
+  background: ;
+}
+.five {
+  background: ;
+}
+.six {
+  background: ;
+}
+.seven {
+  background: ;
+}
+.eight {
+  background: ;
+}
+.nine {
+  background: ;
+}
