@@ -6,7 +6,7 @@
 <% @proposals.each do |proposal| %>
   <div>
     <a href="/proposals/<%= proposal.id %>"><%= proposal.location_title %></a>
-	<form id = "<%=proposal.id%>", class="vote", method = "post" action="/proposals/<%=proposal.id%>/votes">
+	<form id ="<%=proposal.id%>", class="vote", method = "post" action="/proposals/<%=proposal.id%>/votes">
 		<input type="hidden" name="vote[proposal_id]" value="<%=proposal.id%>">
   		<p class="vote-count"><%=proposal.count_votes%></p>
  		<button
@@ -17,7 +17,7 @@
     		<span class="text">Vote</span>
   		</button>
 	</form>
-	<script src="js/vote.js"></script>
+	<script src="../js/vote.js"></script>
   </div>
   <!-- append image of location + other data -->
 <% end %>
