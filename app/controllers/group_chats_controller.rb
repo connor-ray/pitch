@@ -1,6 +1,10 @@
 get '/groupchats/new'  do 
-  @users = User.all 
-	erb :'/groupchats/new'
+  if current_user
+    @users = User.all 
+	  erb :'/groupchats/new'
+  else
+    redirect '/sessions/new'
+  end
 end
 
 post '/groupchats/new' do
@@ -17,11 +21,16 @@ post '/groupchats/new' do
 end
 
 get '/groupchats/:id' do
-	@groupchat = Groupchat.find(params[:id])
+  if current_user
+    @groupchat = Groupchat.find(params[:id])
     erb :'/groupchats/show'
+  else
+    redirect '/sessions/new'
+  end
 end
 
 
+# Not in use currently
 delete '/groupchats/:id' do
   @groupchat = Groupchat.find(params[:id]) 
   @groupchat.destroy 
