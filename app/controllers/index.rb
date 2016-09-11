@@ -1,5 +1,5 @@
 get '/' do
-  erb :'index'
+  erb :'groupchats/show'
 end
 
 get '/homepage' do
