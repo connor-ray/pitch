@@ -1,1 +1,16 @@
 <h2>Edit the proposal below:</h2>
+
+<div class="container">
+  <form action='/proposals/<%= @proposal.id %>' method='post'>
+    <input type="hidden" name="_method" value="PUT">
+    Location: <input type="text" name="location_title" placeholder="Title" value='<%= @proposal.location_title %>'>
+    <div class="password">
+    Comment: <input type="text" name="comment" placeholder="Comment" value='<%= @proposal.comment %>'>
+    </div>
+  </form>
+
+  <% if @error %>
+    <%= @error %>
+  <% end %>
+
+</div>
