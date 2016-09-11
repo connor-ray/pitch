@@ -20,6 +20,18 @@ post '/groupchats/new' do
   end
 end
 
+get '/groupchats/:id' do
+  if current_user
+    @groupchat = Groupchat.find(params[:id])
+    @pitch = Pitch.find(13)
+    @proposals = Proposal.where(pitch_id: @pitch.id)
+    # erb :'/proposals/content' #Assuntas Working page
+    erb :'/groupchats/show'
+  else
+    redirect '/sessions/new'
+  end
+end
+
 # get '/groupchats/:id' do
 #   if current_user
 #     @groupchat = Groupchat.find(params[:id])
