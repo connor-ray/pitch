@@ -8,11 +8,13 @@
         </div>
   		</div>
   		<div class="front">
-        <div class="inner">
+        <div class="inner" style="overflow:scroll">
           <button class="flip-button"><i class="material-icons">chat_bubble</i></button>
           <div class="full-container">
-            <div class="locationList">
-
+            <%= erb :'partials/_category_dropdown', layout: false %>
+            <div>
+              <ul style="list-style: none" id='locationList'>
+              </ul>
             </div>
           </div>
         </div>
